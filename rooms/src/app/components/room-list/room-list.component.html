@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="text-center">Room List</h3>
+      <table class=" mt-2 table table-striped align-items-center">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Floor</th>
+            <th>Capacity</th>
+            <th>Last Inspection</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of rooms">
+            <td>{{ room.id }}</td>
+            <td>{{ room.name }}</td>
+            <td>{{ room.floor }}</td>
+            <td>{{ room.capacity }}</td>
+            <td>{{ room.lastInspection }}</td>
+            <td [ngClass]="room.status === 'Available' ? 'text-success' : 'text-danger'">
+              {{ room.status }}
+            </td>
+            <td>
+              <button class="btn btn-warning mx-2" (click)="onEdit(room.id)">
+                Edit
+              </button>
+              <button class="btn btn-danger" (click)="onDelete(room.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

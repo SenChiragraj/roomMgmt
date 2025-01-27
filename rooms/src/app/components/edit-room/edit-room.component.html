@@ -1,0 +1,112 @@
+<div class="container">
+  <h2>Edit Room</h2>
+  <form [formGroup]="editForm" (ngSubmit)="saveRoom()">
+    <!-- name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        placeholder="Enter room name"
+      />
+      <div class="" *ngIf="editForm.get('name')?.touched">
+        <div
+          class="text-danger"
+          *ngIf="editForm.get('name')?.error?.['required']"
+        >
+          Name is required
+        </div>
+        <div
+          class="text-warning"
+          *ngIf="editForm.get('name')?.error?.['minlength']"
+        >
+          Name must be 3 char long.
+        </div>
+      </div>
+    </div>
+    <!-- floor -->
+    <div class="form-group">
+      <label for="floor">Floor</label>
+      <select name="floor" id="floor" formControlName="floor">
+        <option value="">Select Floor</option>
+        <option value="1st Floor">1st Floor</option>
+        <option value="2nd Floor">2nd Floor</option>
+        <option value="3rd Floor">3rd Floor</option>
+        <option value="4th Floor">4th Floor</option>
+      </select>
+      <div
+        *ngIf="editForm.get('floor')?.touched && editForm.get('floor')?.invalid"
+      >
+        <div
+          class="text-danger"
+          *ngIf="editForm.get('floor')?.errors?.required"
+        >
+          Floor is required.
+        </div>
+      </div>
+    </div>
+    <!-- capacity (number input, placeholder: "Enter room capacity") -->
+    <div class="form-group">
+      <label for="capacity">Capacity</label>
+      <input
+        type="text"
+        class="form-control"
+        id="capacity"
+        formControlName="capacity"
+        placeholder="Enter room Capacity"
+      />
+      <div class="" *ngIf="editForm.get('capacity').touched">
+        <div
+          class="text-danger"
+          *ngIf="editForm.get('capacity')?.error?.['required']"
+        >
+          Name is required
+        </div>
+      </div>
+    </div>
+    <!-- lastInspection (date input, placeholder: "Enter last inspection date") -->
+    <div class="form-group">
+      <label for="lastInspection">Last Inspection</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastInspection"
+        formControlName="lastInspection"
+        placeholder="Enter last inspection date"
+      />
+      <div class="" *ngIf="editForm.get('lastInspection').touched">
+        <div
+          class="text-danger"
+          *ngIf="editForm.get('lastInspection')?.error?.['required']"
+        >
+          Name is required
+        </div>
+      </div>
+    </div>
+    <!-- status (radio buttons: "Available" and "Under Maintenance") -->
+    <div class="form-group">
+      <label>Status</label>
+      <div>
+        <label>
+          <input type="radio" formControlName="status" value="Available" />
+          Available
+        </label>
+      </div>
+      <div>
+        <label>
+          <input
+            type="radio"
+            formControlName="status"
+            value="Under Maintenance"
+          />
+          Under Maintenance
+        </label>
+      </div>
+    </div>
+    <button type="submit" disabled class="btn btn-primary">
+      Submit Changes
+    </button>
+  </form>
+</div>
