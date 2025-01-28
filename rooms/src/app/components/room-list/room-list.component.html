@@ -1,8 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="text-center">Room List</h3>
-      <table class=" mt-2 table table-striped align-items-center">
+      <div class="d-flex justify-content-between">
+        <h3 class="text-center">Room List</h3>
+        <input
+          type="text"
+          class="p-2 border-rounded"
+          placeholder="Search"
+          [(ngModel)]="searchText"
+          (keydown)="onSearch()"
+        />
+      </div>
+      <table class="mt-2 table table-striped align-items-center">
         <thead>
           <tr>
             <th>ID</th>
@@ -21,7 +30,11 @@
             <td>{{ room.floor }}</td>
             <td>{{ room.capacity }}</td>
             <td>{{ room.lastInspection }}</td>
-            <td [ngClass]="room.status === 'Available' ? 'text-success' : 'text-danger'">
+            <td
+              [ngClass]="
+                room.status === 'Available' ? 'text-success' : 'text-danger'
+              "
+            >
               {{ room.status }}
             </td>
             <td>

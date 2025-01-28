@@ -1,1 +1,95 @@
-<p>add-room works!</p>
+<div class="">
+  <h3>Add Rooms</h3>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        formControlName="name"
+        required
+        minlength="5"
+      />
+      <div
+        class=""
+        *ngIf="
+          addForm.controls['name']?.touched && addForm.controls['name'].invalid
+        "
+      >
+        <div class="" *ngIf="addForm.controls['name'].errors?.['required']">
+          Name is required
+        </div>
+        <div class="" *ngIf="addForm.controls['name'].errors?.['minlength']">
+          Min length required 5
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <label for="floor">Floor</label>
+      <select name="floor" formControlName="floor" required>
+        <option value="">Select Floor</option>
+        <option value="1st Floor">1st Floor</option>
+        <option value="2nd Floor">2nd Floor</option>
+        <option value="3rd Floor">3rd Floor</option>
+        <option value="4th Floor">4th Floor</option>
+      </select>
+      <div
+        class=""
+        *ngIf="
+          addForm.controls['floor']?.touched &&
+          addForm.controls['floor'].invalid
+        "
+      >
+        <div class="" *ngIf="addForm.controls['floor'].errors?.['required']">
+          Floor is required
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <label for="capacity">Capacity</label>
+      <input type="text" name="capacity" formControlName="capacity" required />
+      <div class="" *ngIf="addForm.controls['capacity']?.touched">
+        <div class="" *ngIf="addForm.controls['capacity'].errors?.['required']">
+          Capacity is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <div>
+        <label>
+          <input type="radio" formControlName="status" value="Available" />
+          Available
+        </label>
+        <label>
+          <input
+            type="radio"
+            formControlName="status"
+            value="Under Maintenance"
+          />
+          Under Maintenance
+        </label>
+      </div>
+      <div
+        class=""
+        *ngIf="
+          addForm.controls['status']?.touched &&
+          addForm.controls['status'].invalid
+        "
+      >
+        <div class="" *ngIf="addForm.controls['status'].errors?.['required']">
+          Status is required
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add new Room</button>
+  </form>
+
+  <div class="" *ngIf="errorMessage != ''">
+    <h5>{{ errorMessage }}</h5>
+  </div>
+</div>

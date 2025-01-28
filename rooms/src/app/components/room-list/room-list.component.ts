@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { Room } from '../../models/room';
-import { OnInit } from '@angular/core';
-import { RoomService } from '../../services/room.service';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core'
+import { Room } from '../../models/room'
+import { OnInit } from '@angular/core'
+import { RoomService } from '../../services/room.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-room-list',
@@ -10,42 +10,51 @@ import { Router } from '@angular/router';
   styleUrls: ['./room-list.component.scss']
 })
 export class RoomListComponent implements OnInit {
-
-  constructor(private service : RoomService, private router : Router ) { }
+  constructor (private service: RoomService, private router: Router) {}
 
   rooms: Room[] = []
-  errorMessage: string = '';
+  errorMessage: string = ''
+  searchText: string = ''
+  timeOut: any
 
-  ngOnInit(): void {
-    this.loadRooms();
+  ngOnInit (): void {
+    this.loadRooms()
   }
 
-  loadRooms() {
+  loadRooms () {
     this.service.getRooms().subscribe({
       next: (data: Room[]) => {
-        this.rooms = data;
+        this.rooms = data
       },
       error: () => {
-        this.errorMessage = "Error in fetching  all rooms";
+        this.errorMessage = 'Error in fetching  all rooms'
       }
-    });
+    })
   }
 
-  onDelete(id : string = '') {
+  onDelete (id: number | undefined) {
     this.service.deleteRoom(id).subscribe({
       next: () => {
-        this.loadRooms();
+        this.loadRooms()
       },
-      error: (error) => {
-        this.errorMessage = "Error in deleting room";
+      error: error => {
+        this.errorMessage = 'Error in deleting room'
       }
-    });
+    })
   }
 
-  onEdit(id: string = '') {
-    console.log('edit');
+  onEdit (id: number | undefined) {
+    console.log('edit')
 
-    this.router.navigate([`/edit-rooms/${id}`]);
+    this.router.navigate([`/edit-rooms/${id}`])
   }
 
+  onSearch () {
+    if (this.timeOut) {
+      clearTimeout(this.timeOut)
+    }
+    this.timeOut = setTimeout(() => {
+      console.log(this.searchText)
+    }, 500)
+  }
 }

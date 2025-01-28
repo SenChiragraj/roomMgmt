@@ -1,47 +1,60 @@
 {
-  "rooms" : [
+  "rooms": [
     {
-      "id": 1,
-      "name": "Bruce Wane",
-      "floor": "12",
-      "capacity": 100,
-      "lastInspection": "2019-01-01",
-      "status": "Under Maintenance"
-    },{
-      "id": 2,
-      "name": "Clark Kent",
-      "floor": "12",
-      "capacity": 100,
-      "lastInspection": "2019-01-01",
-      "status": "Under Maintenance"
-    }, {
-      "id": 3,
+      "name": "hero",
+      "floor": "2nd Floor",
+      "capacity": "12",
+      "lastInspection": "Jan 28 2025",
+      "status": "Under Maintenance",
+      "id": "2"
+    },
+    {
+      "id": "3",
       "name": "Peter Parker",
       "floor": "18",
       "capacity": 50,
       "lastInspection": "2019-01-01",
       "status": "Available"
-    }, {
-      "id": 4,
+    },
+    {
+      "id": "4",
       "name": "Tony Stark",
       "floor": "18",
       "capacity": 50,
       "lastInspection": "2019-01-01",
       "status": "Available"
-    }, {
-      "id": 5,
+    },
+    {
+      "id": "5",
       "name": "Steve Rogers",
       "floor": "18",
       "capacity": 50,
       "lastInspection": "2019-01-01",
       "status": "Available"
-    }, {
-      "id": 6,
+    },
+    {
+      "id": "6",
       "name": "Natasha Romanoff",
       "floor": "18",
       "capacity": 50,
       "lastInspection": "2019-01-01",
       "status": "Available"
+    },
+    {
+      "id": "e744",
+      "name": "Michael",
+      "floor": "3rd Floor",
+      "capacity": "12",
+      "status": "Under Maintenance",
+      "lastInspection": "Tue Jan 28 2025"
+    },
+    {
+      "id": "c357",
+      "name": "Hehee",
+      "floor": "2nd Floor",
+      "capacity": "12",
+      "status": "Available",
+      "lastInspection": "Tue Jan 28 2025"
     }
   ]
 }

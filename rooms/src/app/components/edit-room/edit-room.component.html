@@ -6,23 +6,16 @@
       <label for="name">Name</label>
       <input
         type="text"
-        class="form-control"
-        id="name"
+        name="name"
+        placeholder="Name"
         formControlName="name"
-        placeholder="Enter room name"
       />
-      <div class="" *ngIf="editForm.get('name')?.touched">
-        <div
-          class="text-danger"
-          *ngIf="editForm.get('name')?.error?.['required']"
-        >
-          Name is required
+      <div class="" *ngIf="editForm.get('name').touched">
+        <div class="" *ngIf="editForm.get('name').errors?.['required']">
+          Name is required.
         </div>
-        <div
-          class="text-warning"
-          *ngIf="editForm.get('name')?.error?.['minlength']"
-        >
-          Name must be 3 char long.
+        <div class="" *ngIf="editForm.get('name').errors?.['minlength']">
+          Name is required.
         </div>
       </div>
     </div>
@@ -36,9 +29,7 @@
         <option value="3rd Floor">3rd Floor</option>
         <option value="4th Floor">4th Floor</option>
       </select>
-      <div
-        *ngIf="editForm.get('floor')?.touched && editForm.get('floor')?.invalid"
-      >
+      <div *ngIf="editForm.get('floor')?.touched">
         <div
           class="text-danger"
           *ngIf="editForm.get('floor')?.errors?.required"
@@ -52,7 +43,6 @@
       <label for="capacity">Capacity</label>
       <input
         type="text"
-        class="form-control"
         id="capacity"
         formControlName="capacity"
         placeholder="Enter room Capacity"
@@ -71,7 +61,6 @@
       <label for="lastInspection">Last Inspection</label>
       <input
         type="text"
-        class="form-control"
         id="lastInspection"
         formControlName="lastInspection"
         placeholder="Enter last inspection date"
@@ -105,8 +94,7 @@
         </label>
       </div>
     </div>
-    <button type="submit" disabled class="btn btn-primary">
-      Submit Changes
-    </button>
+    <!-- Other form fields here -->
+    <button type="submit" class="btn btn-primary">Submit Changes</button>
   </form>
 </div>
