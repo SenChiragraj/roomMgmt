@@ -55,6 +55,14 @@
       "capacity": "12",
       "status": "Available",
       "lastInspection": "Tue Jan 28 2025"
+    },
+    {
+      "id": "070b",
+      "name": "Hehee",
+      "floor": "4th Floor",
+      "capacity": "1000",
+      "status": "Available",
+      "lastInspection": "Tue Jan 28 2025"
     }
   ]
 }

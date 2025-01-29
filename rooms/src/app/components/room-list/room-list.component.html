@@ -3,13 +3,16 @@
     <div class="col-md-12">
       <div class="d-flex justify-content-between">
         <h3 class="text-center">Room List</h3>
-        <input
-          type="text"
-          class="p-2 border-rounded"
-          placeholder="Search"
-          [(ngModel)]="searchText"
-          (keydown)="onSearch()"
-        />
+        <div class="">
+          <input
+            type="text"
+            class="p-2 border-rounded h-2 inputGroup-sizing-sm"
+            placeholder="Search"
+            [(ngModel)]="searchText"
+            (keydown)="onSearch()"
+          />
+          <button class="btn btn-primary mx-2" (click)="onSort()">Sort</button>
+        </div>
       </div>
       <table class="mt-2 table table-striped align-items-center">
         <thead>
@@ -37,11 +40,19 @@
             >
               {{ room.status }}
             </td>
-            <td>
-              <button class="btn btn-warning mx-2" (click)="onEdit(room.id)">
+            <td class="d-grid gap-2 d-md-block">
+              <button
+                class="btn btn-warning mx-2"
+                type="button"
+                (click)="onEdit(room.id)"
+              >
                 Edit
               </button>
-              <button class="btn btn-danger" (click)="onDelete(room.id)">
+              <button
+                class="btn btn-danger"
+                type="button"
+                (click)="onDelete(room.id)"
+              >
                 Delete
               </button>
             </td>
