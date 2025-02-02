@@ -1,5 +1,16 @@
 <div class="container">
   <div class="row">
+    <div class="">
+      <label for="">Sort</label>
+      <select name="" (change)="onChangeSort($event)" id="">
+        <option value=""></option>
+        <option value="id">ID</option>
+        <option value="name">Name</option>
+        <option value="floor">Floor</option>
+        <option value="capacity">Capacity</option>
+        <option value="lastInspection">Last Inspection</option>
+      </select>
+    </div>
     <div class="col-md-12">
       <div class="d-flex justify-content-between">
         <h3 class="text-center">Room List</h3>

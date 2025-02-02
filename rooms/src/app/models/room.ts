@@ -5,4 +5,5 @@ export interface Room {
   capacity: number
   lastInspection?: string
   status: 'Under Maintenance' | 'Available'
+  [key: string]: any
 }

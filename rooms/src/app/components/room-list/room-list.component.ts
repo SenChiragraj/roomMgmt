@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core'
 import { Room } from '../../models/room'
 import { RoomService } from '../../services/room.service'
-import { Router } from '@angular/router'
+import { Event, Router } from '@angular/router'
 
 @Component({
   selector: 'app-room-list',
@@ -23,7 +23,9 @@ export class RoomListComponent implements OnInit {
   loadRooms (): void {
     this.service.getRooms().subscribe({
       next: (data: Room[]) => {
-        this.rooms = data.filter(room => room.name.includes(this.searchText))
+        this.rooms = data.filter(room =>
+          room.name.toLowerCase().includes(this.searchText.toLowerCase())
+        )
       },
       error: () => {
         this.errorMessage = 'Error in fetching all rooms'
@@ -58,7 +60,18 @@ export class RoomListComponent implements OnInit {
 
   onSort () {
     this.rooms.sort((a, b) => {
-      return Math.max(a.name.localeCompare(b.name), a.capacity - b.capacity)
+      return a.name.localeCompare(b.name)
+    })
+  }
+
+  onChangeSort (event: any) {
+    const value = (event.target as HTMLInputElement).value
+    console.log('Sort by:', value)
+
+    this.rooms.sort((a, b) => {
+      if (a[value] < b[value]) return -1
+      if (a[value] > b[value]) return 1
+      return 0 // for equal values
     })
   }
 }

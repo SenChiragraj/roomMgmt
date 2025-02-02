@@ -1,46 +1,6 @@
 {
   "rooms": [
     {
-      "name": "hero",
-      "floor": "2nd Floor",
-      "capacity": "12",
-      "lastInspection": "Jan 28 2025",
-      "status": "Under Maintenance",
-      "id": "2"
-    },
-    {
-      "id": "3",
-      "name": "Peter Parker",
-      "floor": "18",
-      "capacity": 50,
-      "lastInspection": "2019-01-01",
-      "status": "Available"
-    },
-    {
-      "id": "4",
-      "name": "Tony Stark",
-      "floor": "18",
-      "capacity": 50,
-      "lastInspection": "2019-01-01",
-      "status": "Available"
-    },
-    {
-      "id": "5",
-      "name": "Steve Rogers",
-      "floor": "18",
-      "capacity": 50,
-      "lastInspection": "2019-01-01",
-      "status": "Available"
-    },
-    {
-      "id": "6",
-      "name": "Natasha Romanoff",
-      "floor": "18",
-      "capacity": 50,
-      "lastInspection": "2019-01-01",
-      "status": "Available"
-    },
-    {
       "id": "e744",
       "name": "Michael",
       "floor": "3rd Floor",
@@ -57,12 +17,12 @@
       "lastInspection": "Tue Jan 28 2025"
     },
     {
-      "id": "070b",
-      "name": "Hehee",
-      "floor": "4th Floor",
-      "capacity": "1000",
+      "name": "Jason Moon",
+      "floor": "2nd Floor",
+      "capacity": "12",
+      "lastInspection": "2025-02-06",
       "status": "Available",
-      "lastInspection": "Tue Jan 28 2025"
+      "id": "070b"
     }
   ]
 }
